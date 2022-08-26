@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="resultado()">Volado</button>
+    <p id="ventanita"></p>
+    <img src="img/aguila.jpg" id="imgmostrar" width="50" alt="img">
+
+
+    <!-- Javascript -->
+    <script>
+        class Volado_moneda {
+            constructor(numero) {
+                this.numero = numero;
+                this.text = '';
+            }
+
+            volado() {
+                if (this.numero > 0.5) {
+                    this.text = this.numero + ' Mayor ';
+                    document.getElementById("imgmostrar").src = "img/aguila.jpg";
+                } else {
+                    this.text = this.numero + ' Menor ';
+                    document.getElementById("imgmostrar").src = "img/sol.jpg";
+
+                }
+                return this.text;
+            }
+        }
+        // Metodo estatico no requiere una instancia para usarse
+        //es mayor 0.5 es mayor
+        function resultado() {
+            let instancia = new Volado_moneda(Math.random());
+            let contenido = instancia.volado();
+
+
+            document.getElementById("ventanita").innerHTML = contenido;
+
+        }
+    </script>
+</body>
+
+</html>
